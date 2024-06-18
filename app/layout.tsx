@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./styles/globals.scss";
-import grid from "@styles/grid.module.scss";
 
+import Navbar from "@components/Navbar/Navbar";
 import ProtectedRoute from "@components/ProtectedRoute";
-import StoreProvider from "./components/StoreProvider";
+import StoreProvider from "@components/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,8 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<StoreProvider>
 					<ProtectedRoute>
-						<div className={grid.container}>{children}</div>
+						<Navbar />
+						{children}
 					</ProtectedRoute>
 				</StoreProvider>
 			</body>
