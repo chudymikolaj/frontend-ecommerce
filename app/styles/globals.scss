@@ -78,6 +78,11 @@ body {
   line-height: 1;
 }
 
+a {
+  text-decoration: none;
+  color: var(--orange);
+}
+
 ol,
 ul {
   list-style: none;
@@ -104,10 +109,4 @@ table {
 input {
   -webkit-appearance: none;
   border-radius: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
