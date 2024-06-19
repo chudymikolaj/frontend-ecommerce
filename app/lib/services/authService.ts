@@ -1,6 +1,4 @@
-import axios from "axios";
-
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
+import { axiosPostRequest } from "./axiosRequest";
 
 interface RegisterResponse {
 	jwt: string;
@@ -13,20 +11,24 @@ interface LoginResponse {
 }
 
 export const register = async (username: string, email: string, password: string): Promise<RegisterResponse> => {
-	const response = await axios.post<RegisterResponse>(`${API_URL}/api/auth/local/register`, {
+	const data = {
 		username,
 		email,
 		password,
-	});
+	};
+
+	const response = await axiosPostRequest(`/api/auth/local/register`, data);
 
 	return response.data;
 };
 
 export const login = async (identifier: string, password: string): Promise<LoginResponse> => {
-	const response = await axios.post<LoginResponse>(`${API_URL}/api/auth/local`, {
+	const data = {
 		identifier,
 		password,
-	});
+	};
+
+	const response = await axiosPostRequest(`/api/auth/local`, data);
 
 	return response.data;
 };
