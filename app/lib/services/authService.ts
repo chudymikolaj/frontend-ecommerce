@@ -11,24 +11,30 @@ interface LoginResponse {
 }
 
 export const register = async (username: string, email: string, password: string): Promise<RegisterResponse> => {
-	const data = {
-		username,
-		email,
-		password,
-	};
+	try {
+		const data = {
+			username,
+			email,
+			password,
+		};
+		const response = await axiosPostRequest(`/api/auth/local/register`, data);
 
-	const response = await axiosPostRequest(`/api/auth/local/register`, data);
-
-	return response.data;
+		return response.data;
+	} catch (error) {
+		throw error;
+	}
 };
 
 export const login = async (identifier: string, password: string): Promise<LoginResponse> => {
-	const data = {
-		identifier,
-		password,
-	};
+	try {
+		const data = {
+			identifier,
+			password,
+		};
+		const response = await axiosPostRequest(`/api/auth/local`, data);
 
-	const response = await axiosPostRequest(`/api/auth/local`, data);
-
-	return response.data;
+		return response.data;
+	} catch (error) {
+		throw error;
+	}
 };

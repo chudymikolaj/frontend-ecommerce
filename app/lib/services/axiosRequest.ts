@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
@@ -11,9 +11,14 @@ const axiosGetRequest = async (url: url) => {
 
 		return response;
 	} catch (error) {
-		console.error("Error during axios request:", error);
-
-		throw error;
+		if (axios.isAxiosError(error)) {
+			// Axios-specific error
+			throw new Error("Failed to fetch data");
+		} else {
+			// Some other error
+			console.error("An unexpected error occurred:", error);
+			throw new Error("An unexpected error occurred");
+		}
 	}
 };
 
@@ -23,9 +28,14 @@ const axiosPostRequest = async (url: url, data: data) => {
 
 		return response;
 	} catch (error) {
-		console.error("Error during axios request:", error);
-
-		throw error;
+		if (axios.isAxiosError(error)) {
+			// Axios-specific error
+			throw new Error("Failed to fetch data");
+		} else {
+			// Some other error
+			console.error("An unexpected error occurred:", error);
+			throw new Error("An unexpected error occurred");
+		}
 	}
 };
 
