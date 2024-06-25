@@ -1,0 +1,165 @@
+@import '@styles/mixins.scss';
+
+.Navbar__container {
+  width: 100%;
+  padding: 15px;
+
+  @include mediaquery(lg) {
+    padding: 20px 30px;
+  }
+
+  max-width: var(--max-width-grid);
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+
+  &_wrapperLogotype {
+    order: 1;
+  }
+
+  &_logotype {
+    font-weight: 800;
+    font-size: clamp-calc(768px, 992px, 18px, 24px);
+    color: var(--black);
+  }
+
+  &__menu {
+    order: 3;
+    padding: 10px 5px;
+    display: none;
+    gap: 10px;
+    position: absolute;
+    top: 100%;
+    left: 15px;
+    right: 15px;
+    background-color: var(--white);
+    flex-direction: column;
+    box-shadow: 0 0 1px 1px var(--light-gray);
+    border-radius: var(--border-button-radius);
+
+    @include mediaquery(lg) {
+      order: 2;
+      padding: 0;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      top: unset;
+      left: unset;
+      right: unset;
+      box-shadow: none;
+      border-radius: none;
+    }
+  }
+
+  &__menu.open {
+    display: flex;
+  }
+
+  &__menu__link a {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: var(--border-button-radius);
+    transition: background-color .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    color: var(--black);
+    display: inline-block;
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
+  &_hamburger {
+    order: 3;
+    width: 41px;
+    height: 41px;
+    border: none;
+    background-color: unset;
+    border-radius: var(--border-button-radius);
+    display: grid;
+    place-items: center;
+
+    @include mediaquery(lg) {
+      display: none;
+    }
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
+  &__menuButtons {
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    @include mediaquery(lg) {
+      order: 3;
+    }
+  }
+
+  &__menuButtons_wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__menuButton {
+    padding: 9px 10px;
+
+    @include mediaquery(lg) {
+      padding: 9px 18px;
+    }
+
+    border-radius: var(--border-button-radius);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: background-color .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    color: var(--loginButton-color);
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
+  &__menuButton img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+  }
+
+  &__menuButton_name {
+    display: none;
+
+    @include mediaquery(lg) {
+      display: block;
+    }
+  }
+
+  &__menuButton__cart {
+    height: 23px;
+    position: relative;
+  }
+
+  &__menuButton__cart_icon {
+    padding: 3px 4px;
+    background-color: var(--black);
+    border-radius: 4px;
+    position: absolute;
+    top: -25%;
+    right: -20%;
+    font-size: 11px;
+    letter-spacing: -0.06px;
+    color: var(--white);
+  }
+}
