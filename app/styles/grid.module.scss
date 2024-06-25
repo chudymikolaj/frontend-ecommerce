@@ -1,0 +1,14 @@
+.layout__container {
+  min-height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width-grid);
+  padding: 0 var(--padding);
+  margin: 0 auto;
+}

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./styles/globals.scss";
+
+import "@styles/globals.scss";
+import "@styles/variables.scss";
+import grid from "@styles/grid.module.scss";
 
 import Navbar from "@components/Navbar/Navbar";
 import ProtectedRoute from "@components/ProtectedRoute";
@@ -23,8 +26,10 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<StoreProvider>
 					<ProtectedRoute>
-						<Navbar />
-						{children}
+						<div className={grid.layout__container}>
+							<Navbar />
+							{children}
+						</div>
 					</ProtectedRoute>
 				</StoreProvider>
 			</body>
