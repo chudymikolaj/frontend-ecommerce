@@ -27,45 +27,47 @@ const Navbar = async () => {
 				</a>
 			</div>
 
-			<HandleMenu>
-				{getMenu.map((link: LinkTypes) => (
-					<li
-						key={link.id}
-						className={styles.Navbar__container__menu__link}
-					>
-						<a href={link.Url}>{link.Name}</a>
-					</li>
-				))}
-			</HandleMenu>
+			<div className={styles.Navbar__container__wrapper}>
+				<HandleMenu>
+					{getMenu.map((link: LinkTypes) => (
+						<li
+							key={link.id}
+							className={styles.Navbar__container__menu__link}
+						>
+							<a href={link.Url}>{link.Name}</a>
+						</li>
+					))}
+				</HandleMenu>
 
-			<div className={styles.Navbar__container__menuButtons}>
-				<div className={styles.Navbar__container__menuButtons_wrapper}>
-					{getMenuButtons.map((link: LinkWithIconTypes) => {
-						const isCart = link.Link === "/cart";
-						return (
-							<a
-								key={link.id}
-								href={link.Link}
-								className={styles.Navbar__container__menuButton}
-							>
-								{isCart ? (
-									<div className={styles.Navbar__container__menuButton__cart}>
+				<div className={styles.Navbar__container__menuButtons}>
+					<div className={styles.Navbar__container__menuButtons_wrapper}>
+						{getMenuButtons.map((link: LinkWithIconTypes) => {
+							const isCart = link.Link === "/cart";
+							return (
+								<a
+									key={link.id}
+									href={link.Link}
+									className={styles.Navbar__container__menuButton}
+								>
+									{isCart ? (
+										<div className={styles.Navbar__container__menuButton__cart}>
+											<img
+												src={`${CMS_URL}${link.Icon.data.attributes.url}`}
+												alt=""
+											/>
+											<div className={styles.Navbar__container__menuButton__cart_icon}>0</div>
+										</div>
+									) : (
 										<img
 											src={`${CMS_URL}${link.Icon.data.attributes.url}`}
 											alt=""
 										/>
-										<div className={styles.Navbar__container__menuButton__cart_icon}>0</div>
-									</div>
-								) : (
-									<img
-										src={`${CMS_URL}${link.Icon.data.attributes.url}`}
-										alt=""
-									/>
-								)}
-								<span className={styles.Navbar__container__menuButton_name}>{link.Name}</span>
-							</a>
-						);
-					})}
+									)}
+									<span className={styles.Navbar__container__menuButton_name}>{link.Name}</span>
+								</a>
+							);
+						})}
+					</div>
 				</div>
 			</div>
 		</div>

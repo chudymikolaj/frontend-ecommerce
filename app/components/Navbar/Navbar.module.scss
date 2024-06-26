@@ -28,7 +28,6 @@
   }
 
   &__menu {
-    order: 3;
     padding: 10px 5px;
     display: none;
     gap: 10px;
@@ -42,7 +41,6 @@
     border-radius: var(--border-button-radius);
 
     @include mediaquery(lg) {
-      order: 2;
       padding: 0;
       position: relative;
       display: flex;
@@ -75,8 +73,19 @@
     }
   }
 
+  &__wrapper {
+    order: 2;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    @include mediaquery(lg) {
+      gap: 0;
+    }
+  }
+
   &_hamburger {
-    order: 3;
+    order: 2;
     width: 41px;
     height: 41px;
     border: none;
@@ -86,6 +95,7 @@
     place-items: center;
 
     @include mediaquery(lg) {
+      order: 1;
       display: none;
     }
 
@@ -95,14 +105,14 @@
   }
 
   &__menuButtons {
-    order: 2;
+    order: 1;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
 
     @include mediaquery(lg) {
-      order: 3;
+      order: 2;
     }
   }
 
@@ -141,7 +151,7 @@
   &__menuButton_name {
     display: none;
 
-    @include mediaquery(lg) {
+    @include mediaquery(sm) {
       display: block;
     }
   }
