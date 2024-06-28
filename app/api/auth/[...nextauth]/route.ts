@@ -8,12 +8,12 @@ const handler = NextAuth({
 		CredentialsProvider({
 			name: "Credentials",
 			credentials: {
-				email: { label: "Email", type: "email" },
+				identifier: { label: "Identifier", type: "text" },
 				password: { label: "Password", type: "password" },
 			},
 			async authorize(credentials) {
 				try {
-					const res = await login(String(credentials?.email), String(credentials?.password));
+					const res = await login(String(credentials?.identifier), String(credentials?.password));
 
 					console.log(res);
 
