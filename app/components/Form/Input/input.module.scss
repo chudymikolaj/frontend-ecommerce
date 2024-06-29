@@ -1,6 +1,10 @@
 .InputField {
   margin: 0 auto 10px;
 
+  &:last-of-type {
+    margin: 0;
+  }
+
   &__input {
     width: 100%;
     padding: 10px 16px;
