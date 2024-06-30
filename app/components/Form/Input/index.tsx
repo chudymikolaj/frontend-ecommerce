@@ -14,18 +14,16 @@ const InputForm = ({ inputId, placeholder, type, ...props }: InputFormProps) => 
 		<div className={styles.InputField}>
 			<Field name={inputId}>
 				{({ field, form, meta }: any) => (
-					<div>
-						<input
-							id={inputId}
-							{...field}
-							className={`${styles.InputField__input} ${
-								meta.touched && meta.error ? styles.InputField__input_error : ""
-							}`}
-							placeholder={placeholder}
-							type={type}
-							{...props}
-						/>
-					</div>
+					<input
+						id={inputId}
+						{...field}
+						className={`${styles.InputField__input} ${
+							meta.touched && meta.error ? styles.InputField__input_error : ""
+						}`}
+						placeholder={placeholder}
+						type={type}
+						{...props}
+					/>
 				)}
 			</Field>
 
