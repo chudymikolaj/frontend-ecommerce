@@ -4,7 +4,7 @@ import { FormikHelpers } from "formik";
 import { signIn } from "next-auth/react";
 import * as Yup from "yup";
 
-import { ButtonSubmitForm, FormikForm, HeaderForm, InputForm, RecoverPassword } from "@components/Form";
+import { ButtonSubmitForm, FormikForm, HeaderForm, InputForm, RecoverPassword, RedirectForm } from "@components/Form";
 
 import styles from "./loginForm.module.scss";
 
@@ -52,6 +52,11 @@ const LoginForm = () => {
 				<RecoverPassword />
 				<ButtonSubmitForm buttonName="Zaloguj się" />
 			</FormikForm>
+			<RedirectForm
+				url="/register"
+				text="Nie masz konta?"
+				name="Zarejestruj się"
+			/>
 		</div>
 	);
 };
