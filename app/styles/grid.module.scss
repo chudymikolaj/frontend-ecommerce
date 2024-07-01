@@ -1,3 +1,5 @@
+@import "@styles/mixins.scss";
+
 .layout__container {
   min-height: 100vh;
   margin: auto;
@@ -9,6 +11,11 @@
 .container {
   width: 100%;
   max-width: var(--max-width-grid);
-  padding: 0 var(--padding);
+  padding: 0 var(--mobile-padding);
+
+  @include mediaquery(md) {
+    padding: 0 var(--grid-padding);
+  }
+
   margin: 0 auto;
 }
