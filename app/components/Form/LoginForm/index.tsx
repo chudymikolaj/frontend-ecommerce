@@ -4,7 +4,15 @@ import { FormikHelpers } from "formik";
 import { signIn } from "next-auth/react";
 import * as Yup from "yup";
 
-import { ButtonSubmitForm, FormikForm, HeaderForm, InputForm, RecoverPassword, RedirectForm } from "@components/Form";
+import {
+	ButtonSubmitForm,
+	FormikForm,
+	HeaderForm,
+	InputForm,
+	RecoverPassword,
+	RedirectForm,
+	LoginHandleError,
+} from "@components/Form";
 
 import styles from "./loginForm.module.scss";
 
@@ -34,6 +42,7 @@ const LoginForm = () => {
 	return (
 		<div className={styles.LoginForm__container}>
 			<HeaderForm>Zaloguj się</HeaderForm>
+			<LoginHandleError />
 			<FormikForm
 				validationSchema={SignupSchema}
 				dataValues={formValue}

@@ -3,14 +3,14 @@
 .LoginForm__container {
   width: 100%;
   max-width: 540px;
-  padding: 30px var(--mobile-padding);
+  padding: 20px var(--mobile-padding);
 
   @include mediaquery(xxs) {
-    padding: 30px;
+    padding: 20px;
   }
 
   @include mediaquery(md) {
-    padding: 60px;
+    padding: 40px 60px 30px 60px;
   }
 
   border: 1px solid var(--light-gray);
