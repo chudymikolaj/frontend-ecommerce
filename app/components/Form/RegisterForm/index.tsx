@@ -16,9 +16,16 @@ interface interfaceValues {
 }
 
 const SignupSchema = Yup.object().shape({
-	username: Yup.string().min(3).required("Podaj nazwę konta. Powinno składać się minimum z 3 znaków."),
-	email: Yup.string().email().min(6).required("Podaj e-mail. Powinno składać się minimum z 6 znaków."),
-	password: Yup.string().min(8).required("Wpisz hasło. Powinno składać się minimum z 8 znaków."),
+	username: Yup.string()
+		.min(3, "Nazwa użytkownika musi składać się z co najmniej 3 znaków")
+		.required("Podaj nazwę konta. Powinno składać się minimum z 3 znaków."),
+	email: Yup.string()
+		.matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, "Podaj prawidłowy adres e-mail.")
+		.min(6)
+		.required("Podaj e-mail. Powinno składać się minimum z 6 znaków."),
+	password: Yup.string()
+		.min(8, "Hasło musi zawierać co najmniej 8 znaków.")
+		.required("Wpisz hasło. Powinno składać się minimum z 8 znaków."),
 });
 
 const RegisterForm = () => {
