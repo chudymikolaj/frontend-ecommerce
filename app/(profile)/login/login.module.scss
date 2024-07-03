@@ -1,0 +1,8 @@
+@import '@styles/mixins.scss';
+
+.LoginPage_container {
+  @include flex-center;
+
+  margin: 60px auto;
+  flex-wrap: wrap;
+}
