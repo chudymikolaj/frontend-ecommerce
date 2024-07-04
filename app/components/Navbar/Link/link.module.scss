@@ -1,0 +1,16 @@
+@import '@styles/mixins.scss';
+
+.Link__container {
+  &__menuLink a {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: var(--border-button-radius);
+    transition: background-color .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    color: var(--black);
+    display: inline-block;
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+}
