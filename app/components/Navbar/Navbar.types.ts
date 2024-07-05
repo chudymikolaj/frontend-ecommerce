@@ -7,7 +7,7 @@ export type LinkTypes = {
 export type LinkWithIconTypes = {
 	id: number;
 	Name: string;
-	Link: string;
+	Url: string;
 	Icon: {
 		data: {
 			id: number;
@@ -18,4 +18,10 @@ export type LinkWithIconTypes = {
 			};
 		};
 	};
+};
+
+export type UserLinksTypes = {
+	id: number;
+	UserLink: LinkWithIconTypes;
+	UserLinks: LinkWithIconTypes[];
 };
