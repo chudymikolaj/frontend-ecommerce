@@ -1,0 +1,53 @@
+@import '@styles/mixins.scss';
+
+.Cart__container {
+  padding: 9px 10px;
+
+  @include mediaquery(lg) {
+    padding: 9px 18px;
+  }
+
+  border-radius: var(--border-button-radius);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background-color .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  color: var(--loginButton-color);
+
+  &:hover {
+    background-color: var(--light-gray);
+  }
+
+
+  img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+  }
+
+  &_name {
+    display: none;
+
+    @include mediaquery(sm) {
+      display: block;
+    }
+  }
+
+  &__cart {
+    height: 23px;
+    position: relative;
+  }
+
+  &__cart_icon {
+    padding: 3px 4px;
+    background-color: var(--black);
+    border-radius: 4px;
+    position: absolute;
+    top: -25%;
+    right: -20%;
+    font-size: 11px;
+    letter-spacing: -0.06px;
+    color: var(--white);
+  }
+}
