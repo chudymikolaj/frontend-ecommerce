@@ -1,3 +1,5 @@
+import Dropdown from "../Dropdown";
+
 import { UserLinksTypes } from "../Navbar.types";
 import styles from "./linkWithIcon.module.scss";
 
@@ -8,21 +10,29 @@ type LinkWithIconProps = {
 };
 
 const LinkWithIcon = ({ link }: LinkWithIconProps) => {
-	const getLink = link.UserLink;
+	const getLink = link?.UserLink;
+	const getLinks = link?.UserLinks;
 
 	return (
-		<a
-			key={getLink.id}
-			href={getLink.Url}
-			className={styles.LinkWithIcon__container__menuLink}
-		>
-			<img
-				src={`${CMS_URL}${getLink.Icon.data.attributes.url}`}
-				alt=""
-			/>
+		<div className={styles.LinkWithIcon__container}>
+			<a
+				key={getLink.id}
+				href={getLink.Url}
+				className={styles.LinkWithIcon__container__menuLink}
+			>
+				<img
+					src={`${CMS_URL}${getLink.Icon.data.attributes.url}`}
+					alt=""
+				/>
 
-			<span className={styles.LinkWithIcon__container__menuLink_name}>{getLink.Name}</span>
-		</a>
+				<span className={styles.LinkWithIcon__container__menuLink_name}>{getLink.Name}</span>
+			</a>
+
+			<Dropdown
+				className={styles.LinkWithIcon__container_dropdown}
+				links={getLinks}
+			/>
+		</div>
 	);
 };
 
