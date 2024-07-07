@@ -1,0 +1,36 @@
+@import '@styles/mixins.scss';
+
+.Dropdown__component {
+  @include flex-column;
+
+  width: 100%;
+  padding: 9px 10px;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 6px var(--shadow-light-gray);
+  gap: 6px;
+
+  @include mediaquery(lg) {
+    padding: 9px;
+  }
+
+  &__item {
+    padding: 0;
+    transition: background-color .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border-radius: var(--border-radius);
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
+  &__item_link {
+    padding: 9px;
+    background-color: unset;
+    border: unset;
+    display: block;
+    font-size: 14px;
+    color: var(--black);
+    cursor: pointer;
+  }
+}
