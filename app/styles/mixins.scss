@@ -34,7 +34,7 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
   flex-direction: row;
 }
 
-@mixin flex-row {
+@mixin flex-column {
   @include flex;
 
   flex-direction: column;
