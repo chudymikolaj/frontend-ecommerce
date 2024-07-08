@@ -1,9 +1,12 @@
 @import '@styles/mixins.scss';
 
 .LinkWithIcon__container {
-  position: relative;
   border-radius: var(--border-button-radius);
   transition: background-color .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+  @include mediaquery(lg) {
+    position: relative;
+  }
 
   &:hover {
     background-color: var(--light-gray);
@@ -45,13 +48,18 @@
   }
 
   &_dropdown {
-    min-width: 256px;
-    position: absolute;
-    top: 100%;
-    left: 0;
     transition: opacity .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     opacity: 0;
     visibility: hidden;
+    position: absolute;
+    left: 15px;
+    right: 15px;
+
+    @include mediaquery(lg) {
+      min-width: 256px;
+      right: unset;
+      left: 0;
+    }
 
     &:before {
       content: '';
