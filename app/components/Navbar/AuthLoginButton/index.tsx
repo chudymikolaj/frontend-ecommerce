@@ -18,8 +18,6 @@ const AuthLoginButton = async ({ link, children }: AuthLoginButtonProps) => {
 	const getLink = link?.UserLink;
 	const getLinks = link?.UserLinks;
 
-	console.log(getLinks);
-
 	if (session) {
 		return (
 			<div className={styles.AuthLoginButton__container}>
