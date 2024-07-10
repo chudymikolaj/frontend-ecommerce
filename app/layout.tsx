@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 
 import "@styles/globals.scss";
 import "@styles/variables.scss";
-import grid from "@styles/grid.module.scss";
+import styles from "@styles/grid.module.scss";
 
 import Navbar from "@components/Navbar/Navbar";
 import ProtectedRoute from "@components/ProtectedRoute";
@@ -26,7 +26,7 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<StoreProvider>
 					<ProtectedRoute>
-						<div className={grid.layout__container}>
+						<div className={styles.layout__container}>
 							<Navbar />
 							{children}
 						</div>
