@@ -2,12 +2,19 @@
 
 .Link__container {
   &__menuLink a {
+    @include flex-center;
+
     width: 100%;
-    padding: 12px 20px;
+    height: 42px;
+    padding: 9px 10px;
+
+    @include mediaquery(lg) {
+      padding: 9px 18px;
+    }
+
     border-radius: var(--border-button-radius);
     transition: background-color .300s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     color: var(--black);
-    display: inline-block;
 
     &:hover {
       background-color: var(--light-gray);

@@ -19,6 +19,7 @@
 
   &__menuLink {
     max-width: 140px;
+    height: 42px;
     padding: 9px 10px;
 
     @include mediaquery(lg) {

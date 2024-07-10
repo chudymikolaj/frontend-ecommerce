@@ -15,6 +15,7 @@
   }
 
   &__menuLink {
+    height: 42px;
     padding: 9px 10px;
 
     @include mediaquery(lg) {
