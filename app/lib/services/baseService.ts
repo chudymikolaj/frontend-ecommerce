@@ -1,4 +1,5 @@
 import { axiosGetRequest } from "./axiosRequest";
+import type { axiosGetProductBySlugResponse } from "./baseService.types";
 
 export const navbarRequest = async () => {
 	try {
@@ -12,23 +13,9 @@ export const navbarRequest = async () => {
 	}
 };
 
-interface axiosGetProductBySlugResponse {
-	id: 1;
-	attributes: {
-		idProduct: string;
-		name: string;
-		slug: string;
-		price: number;
-		count: number;
-		image: string;
-		productGallery: [];
-		description: string;
-	};
-}
-
 export const axiosGetProductBySlug = async (slug: string): Promise<axiosGetProductBySlugResponse> => {
 	try {
-		const response = await axiosGetRequest(`/api/products?filters[slug][$eq]=${slug}`);
+		const response = await axiosGetRequest(`/api/products?filters[slug][$eq]=${slug}&populate=*`);
 
 		return response.data.data[0];
 	} catch (error) {
