@@ -24,6 +24,10 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
 @return $return-value;
 }
 
+@mixin Header_1 {
+  font-size: clamp-calc(768px, 992px, 18px, 28px);
+}
+
 @mixin flex {
   display: flex;
 }
