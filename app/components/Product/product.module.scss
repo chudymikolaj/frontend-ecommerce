@@ -1,0 +1,28 @@
+@import '@styles/mixins.scss';
+
+.Product__container {
+  @include flex-column;
+  gap: 60px;
+
+  max-width: 1160px;
+  margin: 60px auto;
+
+  @include mediaquery(md) {
+    margin: 80px auto;
+    gap: 80px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: flex-start;
+    justify-items: stretch;
+    gap: 40px;
+
+    @include mediaquery(sm) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+  }
+}
