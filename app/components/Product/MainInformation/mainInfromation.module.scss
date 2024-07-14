@@ -1,0 +1,17 @@
+@import "@styles/mixins";
+
+.MainInformation__container {
+  &__wrapper {
+    margin: 0 auto 40px;
+  }
+
+  &__wrapper_name {
+    @include Header_1;
+    font-weight: 400;
+  }
+
+  &__wrapper_price {
+    font-size: clamp-calc(768px, 992px, 18px, 22px);
+    font-weight: 400;
+  }
+}
