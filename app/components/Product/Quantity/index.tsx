@@ -5,8 +5,7 @@ import { type ChangeEvent, useState } from "react";
 import styles from "./quantity.module.scss";
 import type { QuantityProps } from "./quantity.types";
 
-const Quantity = ({ maxQuantity }: QuantityProps) => {
-	const [quantity, setQuantity] = useState(1);
+const Quantity = ({ maxQuantity, quantity, setQuantity }: QuantityProps) => {
 	const isQuantityLess = quantity <= 1;
 	const isQuantityMore = quantity >= maxQuantity;
 
