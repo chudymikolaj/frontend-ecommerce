@@ -5,7 +5,7 @@ import authReducer from "./storeSlice";
 export const shopStore = () => {
 	return configureStore({
 		reducer: {
-			auth: authReducer,
+			store: authReducer,
 		},
 	});
 };

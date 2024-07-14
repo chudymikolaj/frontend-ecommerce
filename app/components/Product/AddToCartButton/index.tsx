@@ -1,5 +1,8 @@
 "use client";
 
+import { useAppDispatch } from "@store/hooks";
+import { addToCart } from "@store/storeSlice";
+
 import Quantity from "@components/Product/Quantity";
 
 import AddToCartButtonProps from "./addToCartButton.types";
@@ -7,6 +10,7 @@ import styles from "./addToCartButton.module.scss";
 import { useState } from "react";
 
 const AddToCartButton = ({ attributes }: AddToCartButtonProps) => {
+	const dispatch = useAppDispatch();
 	const { idProduct, name, slug, price, count } = attributes;
 	const [quantity, setQuantity] = useState(1);
 
@@ -19,6 +23,7 @@ const AddToCartButton = ({ attributes }: AddToCartButtonProps) => {
 			quantity,
 		};
 
+		dispatch(addToCart(dataToAddToCart));
 		setQuantity(1);
 	};
 
