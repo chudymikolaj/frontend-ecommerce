@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch } from "@store/hooks";
-import { addToCart } from "@store/storeSlice";
+import { addToCart } from "@store/cartSlice";
 
 import Quantity from "@components/Product/Quantity";
 
