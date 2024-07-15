@@ -1,3 +1,7 @@
+"use client";
+
+import { useAppSelector } from "@store/hooks";
+
 import DropdownCart from "./DropdownCart";
 
 import { UserLinksTypes } from "../Navbar.types";
@@ -10,6 +14,8 @@ type CartProps = {
 };
 
 const Cart = ({ link }: CartProps) => {
+	const totalProducts = useAppSelector((state) => state.cart.productCount);
+
 	return (
 		<div className={styles.Cart__container}>
 			<a
@@ -22,7 +28,7 @@ const Cart = ({ link }: CartProps) => {
 						src={`${CMS_URL}${link.UserLink.Icon.data.attributes.url}`}
 						alt=""
 					/>
-					<div className={styles.Cart__container__cart_icon}>0</div>
+					<div className={styles.Cart__container__cart_icon}>{totalProducts}</div>
 				</div>
 
 				<span className={styles.Cart__container_name}>{link.UserLink.Name}</span>
