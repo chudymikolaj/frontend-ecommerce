@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface CartStateInterface {
 	items: { idProduct: string; slug: string; name: string; price: number; count: number; quantity: number }[];
+	productCount: number;
 }
 
 const initialState: CartStateInterface = {
 	items: [],
+	productCount: 0,
 };
 
 const cartSlice = createSlice({
@@ -21,9 +23,11 @@ const cartSlice = createSlice({
 			} else {
 				state.items.push({ ...item });
 			}
+
+			state.productCount += item.quantity;
 		},
 		removeFromCart: (state, action) => {
-			const itemId = action.payload;
+			const itemId = action.payload.idProduct;
 			state.items = state.items.filter((i) => i.idProduct !== itemId);
 		},
 		clearCart: (state) => {
