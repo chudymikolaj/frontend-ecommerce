@@ -1,0 +1,12 @@
+.PrimaryButton {
+  height: 40px;
+  width: 100%;
+  padding: 12px 24px;
+  background-color: var(--green);
+  border: unset;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  color: var(--white);
+  cursor: pointer;
+  text-align: center;
+}
