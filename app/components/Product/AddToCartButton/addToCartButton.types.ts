@@ -1,3 +1,5 @@
+import type { ProductImageType } from "@services/baseService.types";
+
 type AddToCartButtonProps = {
 	attributes: {
 		idProduct: string;
@@ -5,6 +7,7 @@ type AddToCartButtonProps = {
 		name: string;
 		price: number;
 		count: number;
+		image: ProductImageType;
 	};
 };
 

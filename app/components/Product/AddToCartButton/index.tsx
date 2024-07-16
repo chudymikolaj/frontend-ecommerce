@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const AddToCartButton = ({ attributes }: AddToCartButtonProps) => {
 	const dispatch = useAppDispatch();
-	const { idProduct, name, slug, price, count } = attributes;
+	const { idProduct, name, slug, price, count, image } = attributes;
 	const [quantity, setQuantity] = useState(1);
 
 	const handleAddToCart = () => {
@@ -21,6 +21,7 @@ const AddToCartButton = ({ attributes }: AddToCartButtonProps) => {
 			slug,
 			price,
 			quantity,
+			image,
 		};
 
 		dispatch(addToCart(dataToAddToCart));
