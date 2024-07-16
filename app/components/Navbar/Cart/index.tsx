@@ -26,7 +26,7 @@ const Cart = ({ link }: CartProps) => {
 				<div className={styles.Cart__container__cart}>
 					<img
 						src={`${CMS_URL}${link.UserLink.Icon.data.attributes.url}`}
-						alt=""
+						alt="cart icon"
 					/>
 					<div className={styles.Cart__container__cart_icon}>{totalProducts}</div>
 				</div>
