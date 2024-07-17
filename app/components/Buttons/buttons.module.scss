@@ -1,4 +1,5 @@
-.PrimaryButton {
+.PrimaryButton,
+.BorderButton {
   height: 40px;
   width: 100%;
   padding: 12px 24px;
@@ -9,4 +10,10 @@
   color: var(--white);
   cursor: pointer;
   text-align: center;
+}
+
+.BorderButton {
+  background-color: unset;
+  border: 1px solid var(--black);
+  color: var(--black);
 }
