@@ -1,7 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useAppSelector } from "@store/hooks";
-import PrimaryButton from "@components/PrimaryButton";
+import { PrimaryButton, BorderButton } from "@/app/components/Buttons";
 
 import styles from "./dropdownCart.module.scss";
 
@@ -12,6 +13,7 @@ type DropdownCart = {
 const CMS_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const DropdownCart = ({ className }: DropdownCart) => {
+	const pathname = usePathname();
 	const { items: itemsCart, productCount } = useAppSelector((state) => state.cart);
 	const isCart = productCount > 0;
 
@@ -21,10 +23,12 @@ const DropdownCart = ({ className }: DropdownCart) => {
 				{!isCart && (
 					<div className={styles.DropdownCart__container_products_empty}>
 						<p className={styles.DropdownCart__container_products_empty_text}>Twój koszyk jest pusty</p>
-						<PrimaryButton
-							linkTo="/"
-							name="Przejdź do strony głównej"
-						/>
+						{pathname !== "/" && (
+							<BorderButton
+								linkTo="/"
+								name="Przejdź do strony głównej"
+							/>
+						)}
 					</div>
 				)}
 
