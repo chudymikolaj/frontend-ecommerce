@@ -5,12 +5,15 @@
   --black: #1B1212;
   --white: #FAF9F6;
   --red: #D03B30;
+  --blue: #2B538F;
+  --blue-dark: #142642;
   --green: #32902B;
   --green-dark: #174214;
   --gray: rgb(21, 41, 43, .5);
   --light-gray: rgb(21, 41, 43, .05);
   --shadow-light-gray: rgb(21, 41, 43, .10);
   --orange: #f77429;
+  --orange-dark: #AB511D;
   --loginButton-color: #1B1212;
   --primaryButton-background: #f77429;
   --primaryButton-color: #f2f2f2;
@@ -22,4 +25,5 @@
   --z-index-clippy: 200;
   --z-index-modal: 300;
   --z-index-error: 400;
+  --cubic-bezier: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }

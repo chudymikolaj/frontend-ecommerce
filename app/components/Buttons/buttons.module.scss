@@ -1,5 +1,6 @@
 .PrimaryButton,
-.BorderButton {
+.BorderButton,
+.InfoButton {
   height: 40px;
   width: 100%;
   padding: 12px 24px;
@@ -10,10 +11,29 @@
   color: var(--white);
   cursor: pointer;
   text-align: center;
+  transition: background-color .25s var(--cubic-bezier);
+
+  &:hover {
+    background-color: var(--green-dark);
+  }
 }
 
 .BorderButton {
   background-color: unset;
   border: 1px solid var(--black);
   color: var(--black);
+
+  &:hover {
+    background-color: var(--light-gray);
+  }
+}
+
+.InfoButton {
+  background-color: var(--blue);
+  border: unset;
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--blue-dark);
+  }
 }

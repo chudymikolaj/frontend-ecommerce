@@ -28,3 +28,14 @@ export const BorderButton = ({ linkTo, name }: PrimaryButtonPropsType) => {
 		</Link>
 	);
 };
+
+export const InfoButton = ({ linkTo, name }: PrimaryButtonPropsType) => {
+	return (
+		<Link
+			href={linkTo}
+			className={styles.InfoButton}
+		>
+			{name}
+		</Link>
+	);
+};

@@ -24,6 +24,7 @@
     font-size: 14px;
     color: var(--white);
     cursor: pointer;
+    transition: background-color .25s var(--cubic-bezier);
 
     &:hover {
       background-color: var(--green-dark);
