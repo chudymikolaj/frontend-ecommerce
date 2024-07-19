@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useAppSelector } from "@store/hooks";
 
 import DropdownCart from "./DropdownCart";
@@ -15,6 +16,8 @@ type CartProps = {
 
 const Cart = ({ link }: CartProps) => {
 	const totalProducts = useAppSelector((state) => state.cart.productCount);
+	const pathname = usePathname();
+	const isCartPage = pathname !== "/cart";
 
 	return (
 		<div className={styles.Cart__container}>
@@ -34,7 +37,7 @@ const Cart = ({ link }: CartProps) => {
 				<span className={styles.Cart__container_name}>{link.UserLink.Name}</span>
 			</a>
 
-			<DropdownCart className={styles.Cart__container_CartDropdown} />
+			{isCartPage && <DropdownCart className={styles.Cart__container_CartDropdown} />}
 		</div>
 	);
 };
