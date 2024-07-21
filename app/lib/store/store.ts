@@ -3,12 +3,22 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./userSlice";
 import cartReducer from "./cartSlice";
 
+const config = {
+	apiUrl: process.env.NEXT_PUBLIC_STRAPI_URL,
+};
+
 export const shopStore = () => {
 	return configureStore({
 		reducer: {
 			user: authReducer,
 			cart: cartReducer,
 		},
+		middleware: (getDefaultMiddleware) =>
+			getDefaultMiddleware({
+				thunk: {
+					extraArgument: config,
+				},
+			}),
 	});
 };
 

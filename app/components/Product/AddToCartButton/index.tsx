@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch } from "@store/hooks";
-import { addToCart } from "@store/cartSlice";
+import { postProductToOrderCollection } from "@store/cartSlice";
 
 import Quantity from "@components/Product/Quantity";
 
@@ -16,15 +16,15 @@ const AddToCartButton = ({ attributes }: AddToCartButtonProps) => {
 
 	const handleAddToCart = () => {
 		const dataToAddToCart = {
-			idProduct,
-			name,
-			slug,
-			price,
-			quantity,
-			image,
+			IdProduct: idProduct,
+			Name: name,
+			Slug: slug,
+			Price: price,
+			Quantity: quantity,
+			Image: image,
 		};
 
-		dispatch(addToCart(dataToAddToCart));
+		dispatch(postProductToOrderCollection(dataToAddToCart));
 		setQuantity(1);
 	};
 

@@ -45,13 +45,13 @@ const DropdownCart = ({ className }: DropdownCart) => {
 										className={styles.DropdownCart__container_products__item}
 									>
 										<img
-											src={`${CMS_URL}${items.image.data.attributes.url}`}
-											alt={`${CMS_URL}${items.image.data.attributes.alternativeText}`}
+											src={`${CMS_URL}${items.Image.data.attributes.url}`}
+											alt={`${CMS_URL}${items.Image.data.attributes.alternativeText}`}
 											className={styles.DropdownCart__container_products__item_image}
 										/>
 										<div className={styles.DropdownCart__container_products__item_text}>
-											<span>{items.name}</span>
-											<span>{items.quantity} szt.</span>
+											<span>{items.Name}</span>
+											<span>{items.Quantity} szt.</span>
 										</div>
 									</div>
 								);

@@ -1,18 +1,36 @@
+import { SerializedError } from "@reduxjs/toolkit";
 import { ProductImageType } from "../services/baseService.types";
 
-export type CartStateInterface = {
-	items: {
-		idProduct: string;
-		slug: string;
-		name: string;
-		price: number;
-		count: number;
-		quantity: number;
-		image: ProductImageType;
-	}[];
-	productCount: number;
-};
+export interface CartItem {
+	IdProduct: string;
+	Slug: string;
+	Name: string;
+	Price: number;
+	Image: ProductImageType;
+	Quantity: number;
+}
 
-export type UserStateInterface = {
-	user: any | null;
-};
+export interface CartStateInterface {
+	items: CartItem[];
+	productCount: number;
+	loading: "idle" | "pending" | "succeeded" | "failed";
+	error: SerializedError | string | null;
+	currentRequestCartId?: string;
+}
+
+export interface PostProductToOrderCollectionResponse {
+	data: {
+		attributes: {
+			Products: CartItem[];
+		};
+	};
+}
+
+export interface PostProductToOrderCollectionProps {
+	IdProduct: string;
+	Slug: string;
+	Name: string;
+	Price: number;
+	Image: { data: { id: number } };
+	Quantity: number;
+}
