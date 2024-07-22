@@ -3,12 +3,13 @@ import { createAsyncThunk, createSlice, nanoid, PayloadAction } from "@reduxjs/t
 
 import type {
 	CartStateInterface,
-	CartItem,
 	PostProductToOrderCollectionResponse,
 	PostProductToOrderCollectionProps,
+	PostProductToOrderCollectionFulfilledType,
 } from "./store.types";
 
 const initialState: CartStateInterface = {
+	basketSync: localStorage.getItem("basketSync") ? localStorage.getItem("basketSync") : null,
 	items: [],
 	productCount: 0,
 	loading: "idle",
@@ -37,14 +38,17 @@ export const postProductToOrderCollection = createAsyncThunk(
 			};
 
 			const response = await axios.post<PostProductToOrderCollectionResponse>(
-				`${config.apiUrl}/api/carts?populate[Products][populate]=*`,
+				`${config.apiUrl}/api/carts?populate[Products][populate]=*&populate[BasketToken][populate]=*`,
 				cartItems,
 				{
 					headers,
 				}
 			);
 
-			return response.data.data.attributes.Products;
+			const getBasketToken = response.data.data.attributes.BasketToken;
+
+			localStorage.setItem("basketSync", getBasketToken);
+			return response.data.data.attributes;
 		} catch (error: any) {
 			return rejectWithValue(error.message);
 		}
@@ -87,24 +91,29 @@ const cartSlice = createSlice({
 			.addCase(postProductToOrderCollection.pending, (state) => {
 				state.loading = "pending";
 			})
-			.addCase(postProductToOrderCollection.fulfilled, (state, action: PayloadAction<CartItem[]>) => {
-				state.loading = "succeeded";
+			.addCase(
+				postProductToOrderCollection.fulfilled,
+				(state, action: PayloadAction<PostProductToOrderCollectionFulfilledType>) => {
+					state.loading = "succeeded";
 
-				const items = action.payload;
-				const existingItemsMap = new Map(state.items.map((item) => [item.IdProduct, item]));
+					const items = action.payload;
+					console.log(items);
+					const existingItemsMap = new Map(state.items.map((item) => [item.IdProduct, item]));
 
-				items.forEach((item) => {
-					const existingItem = existingItemsMap.get(item.IdProduct);
-					if (existingItem) {
-						existingItem.Quantity += item.Quantity;
-					} else {
-						state.items.push(item);
-					}
-				});
+					items.Products.forEach((item) => {
+						const existingItem = existingItemsMap.get(item.IdProduct);
+						if (existingItem) {
+							existingItem.Quantity += item.Quantity;
+						} else {
+							state.items.push(item);
+						}
+					});
 
-				state.productCount = state.items.reduce((count, item) => count + item.Quantity, 0);
-				state.error = null;
-			})
+					state.basketSync = items.BasketToken;
+					state.productCount = state.items.reduce((count, item) => count + item.Quantity, 0);
+					state.error = null;
+				}
+			)
 			.addCase(postProductToOrderCollection.rejected, (state, action) => {
 				state.loading = "failed";
 				state.error = typeof action.payload === "string" ? action.payload : "Something went wrong";

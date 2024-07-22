@@ -11,6 +11,7 @@ export interface CartItem {
 }
 
 export interface CartStateInterface {
+	basketSync: string | null | undefined;
 	items: CartItem[];
 	productCount: number;
 	loading: "idle" | "pending" | "succeeded" | "failed";
@@ -21,9 +22,14 @@ export interface CartStateInterface {
 export interface PostProductToOrderCollectionResponse {
 	data: {
 		attributes: {
+			BasketToken: string;
 			Products: CartItem[];
 		};
 	};
+}
+export interface PostProductToOrderCollectionFulfilledType {
+	BasketToken: string;
+	Products: CartItem[];
 }
 
 export interface PostProductToOrderCollectionProps {
