@@ -48,7 +48,7 @@ const AddToCartButton = ({ attributes }: AddToCartButtonProps) => {
 					<div className={styles.spinner__container}>
 						<svg
 							className={styles.spinner__container__svg}
-							viewBox="0 0 16 16"
+							viewBox="0 0 24 24"
 							xmlns="http://www.w3.org/2000/svg"
 						>
 							<path
