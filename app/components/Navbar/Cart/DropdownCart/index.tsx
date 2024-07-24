@@ -1,10 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useAppSelector } from "@store/hooks";
+import { useAppSelector, useAppDispatch } from "@store/hooks";
 import { PrimaryButton, BorderButton } from "@/app/components/Buttons";
+import { getProductsFromOrderCollectionToCart } from "@store/cartSlice";
 
 import styles from "./dropdownCart.module.scss";
+import { useEffect } from "react";
 
 type DropdownCart = {
 	className: string;
@@ -14,8 +16,15 @@ const CMS_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const DropdownCart = ({ className }: DropdownCart) => {
 	const pathname = usePathname();
-	const { items: itemsCart, productCount } = useAppSelector((state) => state.cart);
+	const dispatch = useAppDispatch();
+	const { items: itemsCart, productCount, loading, basketSync } = useAppSelector((state) => state.cart);
 	const isCart = productCount > 0;
+
+	useEffect(() => {
+		if (loading === "idle") {
+			dispatch(getProductsFromOrderCollectionToCart(basketSync));
+		}
+	}, [loading, dispatch]);
 
 	return (
 		<div className={`${styles.DropdownCart__container} ${className}`}>
