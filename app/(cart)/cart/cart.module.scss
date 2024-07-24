@@ -1,0 +1,11 @@
+@import "@styles/mixins.scss";
+
+.EmptyCart__container {
+  @include flex-column;
+  gap: 16px;
+  max-width: 360px;
+  margin: auto;
+  text-align: center;
+
+  &_text {}
+}
