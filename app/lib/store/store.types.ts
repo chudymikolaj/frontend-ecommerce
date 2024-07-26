@@ -70,3 +70,7 @@ export type PostProductToOrderCollectionProps = {
 	Image: { data: { id: number } }; // Image as object with id for posting
 	Quantity: number;
 };
+
+export type UserStateInterface = {
+	user: null;
+};
