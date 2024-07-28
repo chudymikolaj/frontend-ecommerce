@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Titillium_Web } from "next/font/google";
 
 import "@styles/globals.scss";
 import "@styles/variables.scss";
@@ -9,7 +9,7 @@ import Navbar from "@components/Navbar/Navbar";
 import ProtectedRoute from "@components/ProtectedRoute";
 import StoreProvider from "@components/StoreProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const TitilliumWeb = Titillium_Web({ subsets: ["latin"], weight: ["200", "400", "600", "700", "900"] });
 
 export const metadata: Metadata = {
 	title: "BaristaGadgets",
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
+			<body className={TitilliumWeb.className}>
 				<StoreProvider>
 					<ProtectedRoute>
 						<div className={styles.layout__container}>
