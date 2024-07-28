@@ -3,6 +3,7 @@ import axios, { AxiosError } from "axios";
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 type url = string;
+type slug = string;
 type data = any;
 
 const axiosGetRequest = async (url: url) => {
@@ -13,11 +14,28 @@ const axiosGetRequest = async (url: url) => {
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			// Axios-specific error
-			throw new Error("Failed to fetch data");
+			throw new Error("Failed to fetch data in axiosGetRequest");
 		} else {
 			// Some other error
 			console.error("An unexpected error occurred:", error);
-			throw new Error("An unexpected error occurred");
+			throw new Error("An unexpected error occurred in axiosGetRequest");
+		}
+	}
+};
+
+const axiosGetOnePageRequest = async (slug: slug) => {
+	try {
+		const response = await axios.get(`${API_URL}/api/pages?filters[slug][$eq]=${slug}&populate=*`);
+
+		return response.data.data;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			// Axios-specific error
+			throw new Error("Failed to fetch filters data in axiosGetOneRequest");
+		} else {
+			// Some other error
+			console.error("An unexpected error occurred:", error);
+			throw new Error("An unexpected error occurred in axiosGetOneRequest");
 		}
 	}
 };
@@ -30,13 +48,13 @@ const axiosPostRequest = async (url: url, data: data) => {
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			// Axios-specific error
-			throw new Error("Failed to fetch data");
+			throw new Error("Failed to fetch data in axiosPostRequest");
 		} else {
 			// Some other error
 			console.error("An unexpected error occurred:", error);
-			throw new Error("An unexpected error occurred");
+			throw new Error("An unexpected error occurred in axiosPostRequest");
 		}
 	}
 };
 
-export { axiosGetRequest, axiosPostRequest };
+export { axiosGetRequest, axiosGetOnePageRequest, axiosPostRequest };
