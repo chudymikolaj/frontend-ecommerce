@@ -4,6 +4,7 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 type url = string;
 type slug = string;
+type extraURL = string;
 type data = any;
 
 const axiosGetRequest = async (url: url) => {
@@ -23,9 +24,9 @@ const axiosGetRequest = async (url: url) => {
 	}
 };
 
-const axiosGetOnePageRequest = async (slug: slug) => {
+const axiosGetOnePageRequest = async (slug: slug, extraURL: extraURL = "populate=*") => {
 	try {
-		const response = await axios.get(`${API_URL}/api/pages?filters[slug][$eq]=${slug}&populate=*`);
+		const response = await axios.get(`${API_URL}/api/pages?filters[slug][$eq]=${slug}&${extraURL}`);
 
 		return response.data.data;
 	} catch (error) {
