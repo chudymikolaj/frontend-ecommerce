@@ -2,15 +2,15 @@
   width: 100%;
   padding: 12px 24px;
   margin: 25px auto 0;
-  background-color: var(--orange);
+  background-color: var(--yellow);
   border: none;
   border-radius: var(--border-button-radius);
   text-align: center;
-  color: var(--white);
+  color: var(--black);
   transition: background-color .25s var(--cubic-bezier);
   cursor: pointer;
 
   &:hover {
-    background-color: var(--orange-dark);
+    background-color: var(--yellow-dark);
   }
 }
