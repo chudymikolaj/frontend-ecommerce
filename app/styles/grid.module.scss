@@ -13,7 +13,7 @@
   max-width: var(--max-width-grid);
   padding: 0 var(--mobile-padding);
 
-  @include mediaquery(md) {
+  @include mediaquery(lg) {
     padding: 0 var(--grid-padding);
   }
 
