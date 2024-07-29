@@ -1,4 +1,5 @@
 .PrimaryButton,
+.CTAButton,
 .BorderButton,
 .InfoButton {
   height: 40px;
@@ -25,6 +26,18 @@
 
   &:hover {
     background-color: var(--light-gray);
+  }
+}
+
+.CTAButton {
+  width: auto;
+  display: inline-flex;
+  background-color: var(--yellow);
+  border: unset;
+  color: var(--black);
+
+  &:hover {
+    background-color: var(--yellow-dark);
   }
 }
 

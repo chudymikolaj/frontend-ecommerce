@@ -39,3 +39,14 @@ export const InfoButton = ({ linkTo, name }: PrimaryButtonPropsType) => {
 		</Link>
 	);
 };
+
+export const CTAButton = ({ linkTo, name }: PrimaryButtonPropsType) => {
+	return (
+		<Link
+			href={linkTo}
+			className={styles.CTAButton}
+		>
+			{name}
+		</Link>
+	);
+};
