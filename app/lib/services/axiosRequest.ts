@@ -1,3 +1,4 @@
+import { HomepageAxiosGetOnePageRequestType } from "@/app/(homepage)/homepage.types";
 import axios, { AxiosError } from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
@@ -26,9 +27,11 @@ const axiosGetRequest = async (url: url) => {
 
 const axiosGetOnePageRequest = async (slug: slug, extraURL: extraURL = "populate=*") => {
 	try {
-		const response = await axios.get(`${API_URL}/api/pages?filters[slug][$eq]=${slug}&${extraURL}`);
+		const response = await axios.get<HomepageAxiosGetOnePageRequestType>(
+			`${API_URL}/api/pages?filters[slug][$eq]=${slug}&${extraURL}`
+		);
 
-		return response.data.data;
+		return response?.data.data;
 	} catch (error) {
 		if (axios.isAxiosError(error)) {
 			// Axios-specific error
