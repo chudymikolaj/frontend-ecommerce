@@ -3,15 +3,19 @@ import { axiosGetOnePageRequest } from "@services/axiosRequest";
 import ImageComponent from "@components/Image";
 
 import styles from "./homepage.module.scss";
-import { CTAButton } from "../components/Buttons";
+import { CTAButton } from "@components/Buttons";
+import PageSections from "@components/Sections/PageSections";
 
 const HomePage = async () => {
-	const result = await axiosGetOnePageRequest("/homepage", "&populate[ShowcaseMainPage][populate]=*");
+	const result = await axiosGetOnePageRequest(
+		"/homepage",
+		"&populate[ShowcaseMainPage][populate]=*&populate[Sections][populate]=*"
+	);
 
 	if (result.length === 0) return notFound;
 
 	const getHomepageAttributes = result[0].attributes;
-	const { ShowcaseMainPage } = getHomepageAttributes;
+	const { ShowcaseMainPage, Sections } = getHomepageAttributes;
 	const { Header, HeaderImage, DescriptionWithImage } = ShowcaseMainPage;
 	const { Header: TextHeader, Text, ButtonName, ButtonUrl } = DescriptionWithImage;
 
@@ -33,6 +37,8 @@ const HomePage = async () => {
 					/>
 				</div>
 			</div>
+
+			<PageSections data={Sections} />
 		</main>
 	);
 };
