@@ -1,4 +1,7 @@
-import { HomepageAxiosGetOnePageRequestType } from "@/app/(homepage)/homepage.types";
+import type {
+	HomepageAxiosGetOnePageRequestType,
+	CategoriesAxiosGetOneCategoryRequestType,
+} from "./axiosRequest.types";
 import axios, { AxiosError } from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
@@ -44,6 +47,25 @@ const axiosGetOnePageRequest = async (slug: slug, extraURL: extraURL = "populate
 	}
 };
 
+const axiosGetOneCategoryRequest = async (slug: slug, extraURL: extraURL = "?populate=*") => {
+	try {
+		const response = await axios.get<CategoriesAxiosGetOneCategoryRequestType>(
+			`${API_URL}/api/categories?filters[CategorySlug][$eq]=${slug}&${extraURL}`
+		);
+
+		return response?.data.data;
+	} catch (error) {
+		if (axios.isAxiosError(error)) {
+			// Axios-specific error
+			throw new Error("Failed to fetch filters data in axiosGetOneCategoryRequest");
+		} else {
+			// Some other error
+			console.error("An unexpected error occurred:", error);
+			throw new Error("An unexpected error occurred in axiosGetOneCategoryRequest");
+		}
+	}
+};
+
 const axiosPostRequest = async (url: url, data: data) => {
 	try {
 		const response = await axios.post(`${API_URL}${url}`, data);
@@ -61,4 +83,4 @@ const axiosPostRequest = async (url: url, data: data) => {
 	}
 };
 
-export { axiosGetRequest, axiosGetOnePageRequest, axiosPostRequest };
+export { axiosGetRequest, axiosGetOnePageRequest, axiosGetOneCategoryRequest, axiosPostRequest };
