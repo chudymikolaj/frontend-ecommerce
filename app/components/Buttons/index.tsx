@@ -1,11 +1,7 @@
 import Link from "next/link";
 
 import styles from "./buttons.module.scss";
-
-type PrimaryButtonPropsType = {
-	linkTo: string;
-	name: string;
-};
+import type { PrimaryButtonPropsType } from "./buttons.types";
 
 export const PrimaryButton = ({ linkTo, name }: PrimaryButtonPropsType) => {
 	return (
