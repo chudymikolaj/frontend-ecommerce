@@ -5,7 +5,7 @@ const PageSections = ({ data }: PageProductPropsType) => {
 	const sectionObjects = { "sections.section-products": ProductsSection };
 
 	return (
-		<main>
+		<div>
 			{data.map((item, index) => {
 				if (item) {
 					const Component = sectionObjects[item.__component];
@@ -23,7 +23,7 @@ const PageSections = ({ data }: PageProductPropsType) => {
 
 				return null; // or handle unknown component types
 			})}
-		</main>
+		</div>
 	);
 };
 
