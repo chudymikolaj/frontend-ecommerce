@@ -54,6 +54,18 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
   align-items: center;
 }
 
+@mixin flex-row-start {
+  @include flex-row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@mixin flex-row-end {
+  @include flex-row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 @mixin flex-center {
   @include flex;
   justify-content: center;
