@@ -1,5 +1,5 @@
 @import '@styles/mixins.scss';
 
 .Product_container {
-  margin: 120px auto;
+  margin: clamp-calc(320px, 1460px, 60px, 100px) auto;
 }
