@@ -1,0 +1,61 @@
+@import '@styles/mixins.scss';
+
+.ProductItem__container {
+  @include flex-column-stretch;
+  gap: 25px;
+  width: 100%;
+  max-height: 310px;
+  padding: 15px;
+
+  @include mediaquery(xl) {
+    padding: 25px;
+  }
+
+  background-color: var(--light-gray);
+  border-radius: var(--border-radius);
+
+  &_image {
+    margin: 0 auto;
+  }
+
+  &__wrapper_name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black-font);
+  }
+
+  &__wrapper {
+    @include flex-column;
+    gap: 4px;
+    width: 100%;
+    text-align: center;
+
+    @include mediaquery(xl) {
+      gap: 20px;
+      text-align: left;
+    }
+  }
+
+  &__wrapper__information {
+    @include mediaquery(xl) {
+      @include flex-row-end;
+      justify-content: space-between;
+      gap: 4px;
+      width: 100%;
+      gap: 20px;
+    }
+  }
+
+  &__wrapper__information_price {
+    font-size: 14px;
+    color: var(--black-font);
+  }
+
+  &_AddToCartButton {
+    display: none;
+
+    @include mediaquery(xl) {
+      display: flex;
+    }
+  }
+}
