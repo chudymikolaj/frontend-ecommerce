@@ -1,5 +1,5 @@
-import ProductsSection from "@components/Sections/ProductSection";
-import { PageProductPropsType } from "./pageSections.types";
+import ProductsSection from "@/app/components/Sections/ProductsSection";
+import type { PageProductPropsType } from "./pageSections.types";
 
 const PageSections = ({ data }: PageProductPropsType) => {
 	const sectionObjects = { "sections.section-products": ProductsSection };
