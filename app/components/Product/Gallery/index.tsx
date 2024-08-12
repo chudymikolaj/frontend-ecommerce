@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "./gallery.module.scss";
-import type { ProductImageAttributesType } from "@components/Product/products.types";
+import type { ProductImageAttributesType } from "@services/baseService.types";
 import type { GalleryProductProps } from "./gallery.types";
 
 const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
