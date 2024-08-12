@@ -12,10 +12,10 @@ const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 const Gallery = ({ productGallery, hoverGetSlideImage }: GalleryProductProps) => {
 	const getGallerySlider = productGallery.data;
-	const slideCount = getGallerySlider.length;
+	const slideCount = getGallerySlider?.length;
 	const isSlideDisabled = slideCount <= 4;
 
-	var settings = {
+	const settings = {
 		speed: 500,
 		accessibility: true,
 		slidesToShow: 4,
@@ -27,6 +27,8 @@ const Gallery = ({ productGallery, hoverGetSlideImage }: GalleryProductProps) =>
 		dots: false,
 		arrows: false,
 	};
+
+	if (getGallerySlider === null) return;
 
 	return (
 		<div className={styles.Gallery__container}>
