@@ -16,5 +16,5 @@ export type AddToCartButtonProps = {
 
 export type AddToCartButtonPropsType = {
 	productData: AddToCartButtonProps;
-	className: string;
+	extendedClass: string;
 };

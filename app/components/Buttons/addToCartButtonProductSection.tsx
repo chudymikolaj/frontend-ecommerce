@@ -9,7 +9,7 @@ import styles from "./buttons.module.scss";
 import CartIcon from "public/add-to-cart-icon.svg";
 import ProgressActivityIcon from "public/progress_activity.svg";
 
-const AddToCartButtonProductsSectionItem = ({ productData, className }: AddToCartButtonPropsType) => {
+const AddToCartButtonProductsSectionItem = ({ productData, extendedClass }: AddToCartButtonPropsType) => {
 	const dispatch = useAppDispatch();
 	const getLoading = useAppSelector((state) => state.cart.loading);
 	const isLoading = getLoading === "pending" ? true : false;
@@ -32,7 +32,7 @@ const AddToCartButtonProductsSectionItem = ({ productData, className }: AddToCar
 
 	return (
 		<button
-			className={`${styles.AddToCartButtonProductsSectionItem__container__button} ${className}`}
+			className={`${styles.AddToCartButtonProductsSectionItem__container__button} ${extendedClass}`}
 			onClick={handleAddToCart}
 			disabled={isLoading}
 		>

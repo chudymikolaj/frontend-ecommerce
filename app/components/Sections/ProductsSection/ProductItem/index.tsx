@@ -9,12 +9,16 @@ import type { ProductItemPropsType } from "./ProductItem.types";
 
 const API_CMS = process.env.NEXT_PUBLIC_STRAPI_URL;
 
-const ProductItem = ({ attributes }: ProductItemPropsType) => {
+const ProductItem = ({ attributes, onClick }: ProductItemPropsType) => {
 	const { name, price, slug, image } = attributes;
 	const getProductImage = `${API_CMS}${image.data.attributes.url}`;
 
 	return (
-		<Link href={`/product/${slug}`}>
+		<Link
+			href={`/product/${slug}`}
+			onClick={onClick}
+			tabIndex={-1}
+		>
 			<div className={styles.ProductItem__container}>
 				<Image
 					className={styles.ProductItem__container_image}
@@ -31,7 +35,7 @@ const ProductItem = ({ attributes }: ProductItemPropsType) => {
 						</p>
 						<AddToCartButton
 							productData={attributes}
-							className={styles.ProductsSection__container_AddToCartButton}
+							extendedClass={styles.ProductItem__container_AddToCartButton}
 						/>
 					</div>
 				</div>
