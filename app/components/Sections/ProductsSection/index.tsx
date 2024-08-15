@@ -1,8 +1,9 @@
 import { axiosGetOneCategoryRequest } from "@services/axiosRequest";
 
+import CarouselComponent from "@components/Carousel";
+
 import styles from "./productSection.module.scss";
 import { ProductSectionPropsType } from "./productSection.types";
-import ProductItem from "./ProductItem";
 
 const ProductsSection = async ({ element }: ProductSectionPropsType) => {
 	const { HeaderTitle } = element;
@@ -13,18 +14,7 @@ const ProductsSection = async ({ element }: ProductSectionPropsType) => {
 	return (
 		<div className={styles.ProductsSection__container}>
 			<h2 className={styles.ProductsSection__container_header}>{HeaderTitle}</h2>
-			<div className={styles.ProductsSection__container__products}>
-				{products.data.map(({ attributes }) => {
-					const { idProduct } = attributes;
-
-					return (
-						<ProductItem
-							key={idProduct}
-							attributes={attributes}
-						/>
-					);
-				})}
-			</div>
+			<CarouselComponent products={products} />
 		</div>
 	);
 };
