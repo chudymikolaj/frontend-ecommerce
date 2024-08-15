@@ -1,5 +1,4 @@
 import type { ProductImageAttributesType, ProductImageType } from "@services/baseService.types";
-import { MouseEventHandler } from "react";
 
 export type ProductItemPropsType = {
 	attributes: {
@@ -12,5 +11,5 @@ export type ProductItemPropsType = {
 		productGallery: { data: ProductImageAttributesType[] };
 		description: string;
 	};
-	onClick: (e: { preventDefault: () => void }) => void;
+	onClick?: (e: { preventDefault: () => void }) => void;
 };
