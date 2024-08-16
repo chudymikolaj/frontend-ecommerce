@@ -1,6 +1,5 @@
 import { axiosGetOneCategoryRequest } from "@services/axiosRequest";
-
-import CarouselComponent from "@components/Carousel";
+import CarouselComponent from "@components/Carousels/CarouselProducts";
 
 import styles from "./productSection.module.scss";
 import { ProductSectionPropsType } from "./productSection.types";

@@ -1,15 +1,13 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import ProductItem from "@components/Sections/ProductsSection/ProductItem";
 
-import ProductItem from "../Sections/ProductsSection/ProductItem";
-
-// Import Swiper styles
 import "swiper/css";
-import styles from "./carousel.module.scss";
-import type { CarouselComponentPropsType } from "./carouselComponent.types";
+import styles from "./carouselProducts.module.scss";
+import type { CarouselProductsPropsType } from "@components/Carousels/CarouselProducts/CarouselProducts.types";
 
-const CarouselComponent = ({ products }: CarouselComponentPropsType) => {
+const CarouselProductsComponent = ({ products }: CarouselProductsPropsType) => {
 	const settings = {
 		spaceBetween: 6,
 		slidesPerView: 2,
@@ -33,7 +31,7 @@ const CarouselComponent = ({ products }: CarouselComponentPropsType) => {
 		<>
 			<Swiper
 				{...settings}
-				className={styles.CarouselComponent__container}
+				className={styles.CarouselProductsComponent__container}
 			>
 				{products.data.map(({ attributes }) => {
 					const { idProduct } = attributes;
@@ -49,4 +47,4 @@ const CarouselComponent = ({ products }: CarouselComponentPropsType) => {
 	);
 };
 
-export default CarouselComponent;
+export default CarouselProductsComponent;
