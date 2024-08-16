@@ -1,0 +1,43 @@
+@import '@styles/mixins.scss';
+
+.CarouselProductGallery__container {
+  &__slide {
+    padding: 3px;
+
+    @include mediaquery(sm) {
+      padding: 6px;
+    }
+
+    aspect-ratio: 1/1;
+  }
+
+  &__slide_background {
+    @include flex-center;
+
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--shadow-light-gray);
+    cursor: pointer;
+
+    @include mediaquery(sm) {
+      padding: 12px;
+    }
+
+    &:hover {
+      border-color: var(--shadow-dark-gray);
+    }
+  }
+
+  &__slide_background img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 3px;
+  }
+}
+
+.active {
+  border-color: var(--shadow-dark-gray);
+}
