@@ -14,11 +14,13 @@ const ImageProduct = ({ attributes }: ImageProductProps) => {
 	const getUrlImage = `${API_URL}${getProductImage.url}`;
 	const getProductGallery = attributes.productGallery;
 	const [mainImage, setMainImage] = useState(getUrlImage);
+	const [isCheckImage, setIsCheckImage] = useState(getProductImage.url);
 
 	const handleSlideImage = (slide: SlideImageProductProps) => {
 		const getUrlSlideImage = slide.attributes.url;
 		const changeMainImage = `${API_URL}${getUrlSlideImage}`;
 		setMainImage(changeMainImage);
+		setIsCheckImage(getUrlSlideImage);
 	};
 
 	return (
@@ -34,6 +36,7 @@ const ImageProduct = ({ attributes }: ImageProductProps) => {
 			<Gallery
 				productGallery={getProductGallery}
 				hoverGetSlideImage={handleSlideImage}
+				activeImage={isCheckImage}
 			/>
 		</div>
 	);
