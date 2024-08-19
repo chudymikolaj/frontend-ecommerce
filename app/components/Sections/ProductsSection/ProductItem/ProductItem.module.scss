@@ -1,5 +1,10 @@
 @import '@styles/mixins.scss';
 
+.ProductItem__link {
+  display: block;
+  max-width: 336.5px;
+}
+
 .ProductItem__container {
   @include flex-column-stretch;
   gap: 10px;

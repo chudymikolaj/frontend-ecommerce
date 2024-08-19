@@ -17,7 +17,7 @@ const ProductItem = ({ attributes, onClick }: ProductItemPropsType) => {
 		<Link
 			href={`/product/${slug}`}
 			onClick={onClick}
-			tabIndex={-1}
+			className={styles.ProductItem__link}
 		>
 			<div className={styles.ProductItem__container}>
 				<Image
