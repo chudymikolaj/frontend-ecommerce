@@ -15,11 +15,15 @@ const ImageComponent = ({ data }: ImageComponentProps) => {
 	const { name, url, width, height, alternativeText } = data?.data.attributes;
 	const isAlt = alternativeText ? alternativeText : name;
 
+	const isWidth = width ? width : 700;
+	const isHeight = height ? height : 700;
+
 	return (
 		<Image
+			priority={true}
 			src={`${CMS_URL}${url}`}
-			width={width}
-			height={height}
+			width={isWidth}
+			height={isHeight}
 			alt={isAlt}
 		/>
 	);
