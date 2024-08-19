@@ -10,6 +10,8 @@ const ProductsSection = async ({ element }: ProductSectionPropsType) => {
 	const result = await axiosGetOneCategoryRequest("aeropress", "populate[products][populate]=*");
 	const { products } = result[0].attributes;
 
+	if (!products) return;
+
 	return (
 		<div className={styles.ProductsSection__container}>
 			<h2 className={styles.ProductsSection__container_header}>{HeaderTitle}</h2>
