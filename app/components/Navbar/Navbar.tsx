@@ -33,7 +33,10 @@ const Navbar = async () => {
 			<div className={styles.Navbar__container__wrapper}>
 				<HandleMenu>
 					{getMenu.map((link: LinkTypes) => (
-						<Link link={link} />
+						<Link
+							key={link.id}
+							link={link}
+						/>
 					))}
 				</HandleMenu>
 
@@ -44,12 +47,20 @@ const Navbar = async () => {
 							const isLogin = link.UserLink.Url === "/login";
 
 							if (isCart) {
-								return <Cart link={link} />;
+								return (
+									<Cart
+										key={link.id}
+										link={link}
+									/>
+								);
 							}
 
 							if (isLogin) {
 								return (
-									<AuthLoginButton link={link}>
+									<AuthLoginButton
+										key={link.id}
+										link={link}
+									>
 										<LinkWithIcon link={link} />
 									</AuthLoginButton>
 								);
