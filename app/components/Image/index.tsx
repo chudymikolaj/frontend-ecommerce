@@ -1,15 +1,15 @@
 import type { ProductImageType } from "@/app/lib/services/baseService.types";
 import Image from "next/image";
-
-import React from "react";
+import type { PageSectionsImageType } from "../Sections/PageSections/pageSections.types";
 
 const CMS_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 type ImageComponentProps = {
-	data: ProductImageType;
+	data: ProductImageType | PageSectionsImageType;
+	className?: string;
 };
 
-const ImageComponent = ({ data }: ImageComponentProps) => {
+const ImageComponent = ({ data, className }: ImageComponentProps) => {
 	if (!data) return;
 
 	const { name, url, width, height, alternativeText } = data?.data.attributes;
@@ -25,6 +25,7 @@ const ImageComponent = ({ data }: ImageComponentProps) => {
 			width={isWidth}
 			height={isHeight}
 			alt={isAlt}
+			className={className}
 		/>
 	);
 };
