@@ -1,0 +1,126 @@
+@import "@styles/mixins.scss";
+
+.BentoSection__container {
+  @include flex-row;
+  flex-wrap: wrap-reverse;
+  gap: 30px;
+  margin: 0 auto 60px;
+
+  @include mediaquery('xs') {
+    flex-wrap: nowrap;
+    margin: 0 auto 100px;
+  }
+
+  &__wrapper {
+    @include flex-column;
+    width: 100%;
+
+    @include mediaquery('sm') {
+      width: 50%;
+    }
+
+    @include mediaquery('lg') {
+      width: 100%;
+    }
+  }
+
+  &__wrapper_text {
+    width: 100%;
+    margin: 30px auto 0;
+
+    @include mediaquery('sm') {
+      margin: 30px auto;
+    }
+
+    @include mediaquery('md') {
+      margin: 60px auto 30px;
+    }
+  }
+
+  &__firstBento_item,
+  &__lastBento_item {
+    padding: 20px;
+
+    @include mediaquery('lg') {
+      padding: 40px;
+      max-height: unset;
+    }
+
+    border-radius: var(--border-radius);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__firstBento_item {
+    @include flex-column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+
+    @include mediaquery('lg') {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 80px;
+    }
+  }
+
+  &__lastBento_item {
+    @include flex-column;
+    width: 100%;
+    gap: 30px;
+
+    @include mediaquery('sm') {
+      width: 50%;
+      max-width: 500px;
+    }
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+  }
+
+  &__item_title {
+    margin-bottom: 15px;
+
+    @include mediaquery('xs') {
+      margin-bottom: 30px;
+    }
+
+    font-size: 28px;
+    font-weight: 800;
+    max-width: 290px;
+
+  }
+
+  &__item_button {
+    padding: 12px 24px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    color: var(--black);
+  }
+
+  &__firstBento__item_image {
+    max-width: 460px;
+  }
+
+  &__firstBento__item_image,
+  &__lastBento__item_image {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    aspect-ratio: 16 / 10;
+  }
+
+  &__lastBento__item_image {
+    @include mediaquery('sm') {
+      aspect-ratio: 1/1;
+    }
+
+    @include mediaquery('lg') {
+      max-width: 210px;
+    }
+  }
+}
