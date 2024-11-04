@@ -48,6 +48,18 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
   align-items: center;
 }
 
+@mixin flex-column-start {
+  @include flex-column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flex-column-space {
+  @include flex-column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @mixin flex-column-stretch {
   @include flex-column;
   justify-content: center;
@@ -62,7 +74,13 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
 
 @mixin flex-row-start {
   @include flex-row;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flex-row-space-start {
+  @include flex-row;
+  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -72,8 +90,24 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
   align-items: flex-end;
 }
 
+@mixin flex-row-stretch {
+  @include flex-row;
+  justify-content: center;
+  align-items: stretch;
+}
+
 @mixin flex-center {
   @include flex;
   justify-content: center;
   align-items: center;
+}
+
+@mixin clear-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
