@@ -84,6 +84,12 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
   align-items: flex-start;
 }
 
+@mixin flex-row-space-center {
+  @include flex-row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @mixin flex-row-end {
   @include flex-row;
   justify-content: center;
@@ -109,5 +115,5 @@ $return-value: clamp(#{$size-at-min-width}, #{$y-axis-intersection} + #{$slope} 
   padding: 0;
   font: inherit;
   cursor: pointer;
-  outline: inherit;
+  outline: inherit
 }
