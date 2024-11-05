@@ -1,9 +1,6 @@
 @import '@styles/mixins.scss';
 
-.PrimaryButton,
-.CTAButton,
-.BorderButton,
-.InfoButton {
+.PrimaryButton {
   height: 40px;
   width: 100%;
   padding: 12px 24px;
@@ -22,6 +19,7 @@
 }
 
 .BorderButton {
+  @extend .PrimaryButton;
   background-color: unset;
   border: 1px solid var(--black);
   color: var(--black);
@@ -32,6 +30,7 @@
 }
 
 .CTAButton {
+  @extend .PrimaryButton;
   width: auto;
   display: inline-flex;
   background-color: var(--yellow);
@@ -44,12 +43,37 @@
 }
 
 .InfoButton {
+  @extend .PrimaryButton;
   background-color: var(--blue);
   border: unset;
   color: var(--white);
 
   &:hover {
     background-color: var(--blue-dark);
+  }
+}
+
+.ActionButton {
+  @extend .PrimaryButton;
+  width: auto;
+  display: inline-block;
+  background-color: var(--yellow);
+  border: unset;
+  color: var(--black);
+
+  &:hover {
+    background-color: var(--yellow-dark);
+  }
+}
+
+.SubmitButton {
+  @extend .PrimaryButton;
+  background-color: var(--yellow);
+  border: unset;
+  color: var(--black);
+
+  &:hover {
+    background-color: var(--yellow-dark);
   }
 }
 

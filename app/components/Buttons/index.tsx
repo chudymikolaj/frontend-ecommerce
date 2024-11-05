@@ -46,3 +46,25 @@ export const CTAButton = ({ linkTo, name }: PrimaryButtonPropsType) => {
 		</Link>
 	);
 };
+
+export const ActionButton = ({ action, children }: any) => {
+	return (
+		<button
+			className={styles.ActionButton}
+			onClick={action}
+		>
+			{children}
+		</button>
+	);
+};
+
+export const SubmitButton = ({ action, children }: any) => {
+	return (
+		<button
+			className={styles.SubmitButton}
+			onClick={action}
+		>
+			{children}
+		</button>
+	);
+};
