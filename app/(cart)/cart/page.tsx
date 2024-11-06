@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { removeFromCart, clearCart, getProductsFromOrderCollectionToCart } from "@store/cartSlice";
 import { InfoButton } from "@components/Buttons";
@@ -13,6 +13,7 @@ import Currency from "@/app/lib/currency";
 
 const CartPage = () => {
 	const pathname = usePathname();
+	const router = useRouter();
 	const dispatch = useAppDispatch();
 	const { items: cartItems, productCount, loading, basketSync } = useAppSelector((state) => state.cart);
 	const error = useAppSelector((state) => state.cart.error);
@@ -36,7 +37,7 @@ const CartPage = () => {
 
 	const handleSubmitCart = () => {
 		// dispatch(submitCart(cartItems));
-		dispatch(clearCart());
+		router.push("/checkout");
 	};
 
 	return (
@@ -122,7 +123,7 @@ const CartPage = () => {
 									})}
 								</ul>
 
-								<ActionButton action={handleClearCart}>Clear Cart</ActionButton>
+								<ActionButton action={handleClearCart}>Wyczyść koszyk</ActionButton>
 							</div>
 
 							<div className={styles.CartPage__grid__cart_summary}>
@@ -160,7 +161,7 @@ const CartPage = () => {
 											</div>
 										</div>
 
-										<SubmitButton action={handleSubmitCart}>Submit Cart</SubmitButton>
+										<SubmitButton action={handleSubmitCart}>Przejdz do dostawy i płatności</SubmitButton>
 									</div>
 								</div>
 							</div>

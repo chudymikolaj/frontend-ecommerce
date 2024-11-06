@@ -1,6 +1,6 @@
 import styles from "@styles/grid.module.scss";
 
-const DashboardLayout = ({
+const CartLayout = ({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
@@ -8,4 +8,4 @@ const DashboardLayout = ({
 	return <div className={styles.container}>{children}</div>;
 };
 
-export default DashboardLayout;
+export default CartLayout;
