@@ -1,0 +1,99 @@
+// components/DeliveryForm.module.scss
+
+$form-background: #f9f9f9;
+$highlight-color: orange;
+$border-color: #ddd;
+$input-padding: 10px;
+$font-color: #333;
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.form {
+  background-color: $form-background;
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    gap: 20px;
+
+    label {
+      display: flex;
+      align-items: center;
+      color: $font-color;
+    }
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 5px;
+      color: $font-color;
+    }
+
+    input {
+      padding: $input-padding;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+    }
+  }
+
+  .discount-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    input {
+      padding: $input-padding;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: $input-padding 20px;
+      background-color: $highlight-color;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  .submit-button {
+    padding: $input-padding 20px;
+    background-color: $highlight-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+.summary {
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  width: 300px;
+  color: $font-color;
+
+  h4 {
+    margin-bottom: 10px;
+    color: $highlight-color;
+  }
+}
